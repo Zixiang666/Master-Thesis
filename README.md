@@ -1,205 +1,222 @@
 # Master-Thesis
-硕士论文 - ECG心电图分析与深度学习
+ECG Analysis & Deep Learning Research
 
-# 🔬 ECG心电图5分类深度学习项目 - PyTorch PLRNN实现
+# 🔬 ECG Classification Deep Learning Project - PyTorch PLRNN Implementation
 
-## 项目简介
+## Project Overview
 
-本项目基于**MIMIC-IV-ECG数据集**，使用创新的**分段线性递归神经网络(PLRNN)**实现心电图的5分类任务，自动识别：房颤、心动过缓、束支传导阻滞、正常心律和心动过速。
+This project is based on the **MIMIC-IV-ECG dataset** and implements innovative **Piecewise Linear Recurrent Neural Networks (PLRNN)** for intelligent ECG classification, including:
+- 🎯 **5-Class Classification**: Atrial Fibrillation, Bradycardia, Bundle Branch Block, Normal Rhythm, Tachycardia
+- 🏷️ **Multi-Label Classification**: Scientific 32-label cardiac disease classification system (**NEW!**)
 
-### 🚀 **项目亮点 (2025年)**
-- 🧠 **PLRNN创新架构**: 首次在ECG分析中应用分段线性激活函数
-- 💻 **Mac M4原生支持**: 完美适配Apple Silicon MPS加速，训练速度提升显著
-- 📊 **完整数据管道**: 智能数据验证、预处理和统计分析系统
-- 🔧 **轻量级设计**: 仅28,560参数，适合资源受限环境部署
-- ⚡ **端到端解决方案**: 从原始ECG信号到分类结果的完整工作流
+### 🚀 **Project Highlights (2025)**
+- 🧠 **PLRNN Innovative Architecture**: First application of piecewise linear activation functions in ECG analysis
+- 💻 **Mac M4 Native Support**: Perfect adaptation to Apple Silicon MPS acceleration with significant training speed improvement
+- 🏷️ **Scientific Multi-Label Classification**: 32 cardiac disease label system based on original MIMIC-IV-ECG notes
+- 📊 **Complete Data Pipeline**: Intelligent data validation, preprocessing, and statistical analysis system
+- 🔧 **Lightweight Design**: Single-label 28,560 parameters, multi-label 29,451 parameters
+- ⚡ **End-to-End Solution**: Complete workflow from raw ECG signals to classification results
 
-### 🏆 **核心创新**
-- **分段线性激活**: 突破传统RNN梯度消失问题
-- **医学特征融合**: 结合心率变异性等8个临床关键指标
-- **智能数据验证**: 自动检测和修复ECG数据读取问题
-- **Apple Silicon优化**: 专为M系列芯片深度优化的训练管道
+### 🏆 **Core Innovations**
+- **Piecewise Linear Activation**: Breakthrough solution for traditional RNN gradient vanishing problems
+- **Medical Feature Fusion**: Integration of 8 key clinical indicators including heart rate variability
+- **Intelligent Data Validation**: Automatic detection and repair of ECG data reading issues
+- **Apple Silicon Optimization**: Training pipeline deeply optimized for M-series chips
 
-## 📁 项目结构
+## 📁 Project Structure
 
 ```
 Master-Thesis/
-├── 🔥 pytorch_plrnn.py          # 主要训练脚本 - PyTorch PLRNN实现
-├── 📊 data_validator.py         # ECG数据验证和统计分析工具
-├── 📈 stats.py                  # ECG信号统计特征提取
-├── 🔍 analysis.py               # 信号预处理与频域分析
-├── 📋 ecg_5_class_data.csv      # 5分类标签 (366,301条记录)
-├── 🏷️ ecg_multilabel_data.csv   # 多标签数据 (719,055条记录)  
-├── ❤️ heart_rate_labeled_data.csv # 心率标注 (343,845条记录)
-├── 🤖 *.pth/*.keras             # 训练完成的模型权重
-├── 📊 pytorch_plrnn_results.png # 训练结果可视化
-├── 📊 data_validation_samples.png # 数据验证样本图
-└── 📚 README.md                 # 项目文档
+├── 🔥 pytorch_plrnn.py              # Single-label PLRNN training script
+├── 🏷️ pytorch_plrnn_multilabel.py   # Multi-label PLRNN training script (NEW!)
+├── 📊 data_validator.py             # ECG data validation and statistical analysis tool
+├── 🔬 analyze_ecg_diagnoses.py      # MIMIC diagnosis terminology analysis script
+├── 🛠️ multilabel_dataset_creator.py # Multi-label dataset generator
+├── 📈 stats.py                      # ECG signal statistical feature extraction
+├── 🔍 analysis.py                   # Signal preprocessing and frequency domain analysis
+├── 📋 ecg_5_class_data.csv          # 5-class labels (366,301 records)
+├── 🏷️ mimic_ecg_multilabel_dataset.csv # Scientific multi-label dataset (10,000 records)
+├── 🗂️ mimic_ecg_binary_labels.csv   # 32-dimensional binary label matrix
+├── ⚙️ mimic_ecg_multilabel_dataset_config.json # Multi-label configuration file
+├── ❤️ heart_rate_labeled_data.csv   # Heart rate annotations (343,845 records)
+├── 🤖 *.pth                         # Trained model weights
+├── 📊 pytorch_plrnn_results.png     # Single-label training results
+├── 📊 pytorch_plrnn_multilabel_results.png # Multi-label training results (NEW!)
+├── 📊 data_validation_samples.png   # Data validation sample images
+├── 📑 MIMIC_ECG_Analysis_Report.md  # MIMIC dataset analysis report
+└── 📚 README.md                     # Project documentation
 ```
 
-## 🛠️ 环境配置
+## 🛠️ Environment Setup
 
-### 硬件要求
-- **强烈推荐**: Apple Silicon (M1/M2/M3/M4) Mac
-- **内存**: 最少8GB RAM，推荐16GB+
-- **存储**: 至少20GB可用空间  
-- **加速**: 自动检测MPS支持
+### Hardware Requirements
+- **Strongly Recommended**: Apple Silicon (M1/M2/M3/M4) Mac
+- **Memory**: Minimum 8GB RAM, recommended 16GB+
+- **Storage**: At least 20GB available space  
+- **Acceleration**: Automatic MPS support detection
 
-### 软件环境
+### Software Environment
 ```bash
-# Python版本
-Python 3.10/3.11 (不支持3.13)
+# Python Version
+Python 3.10/3.11 (Python 3.13 not supported)
 
-# 核心依赖
+# Core Dependencies
 torch>=2.0           # PyTorch with MPS support
-pandas>=1.5.0        # 数据处理
-numpy>=1.24.0        # 数值计算
-scikit-learn>=1.3.0  # 机器学习工具
-wfdb>=4.1.0          # ECG文件读取
-matplotlib>=3.7.0    # 可视化
-seaborn>=0.12.0      # 统计图表
-tqdm>=4.65.0         # 进度条
+pandas>=1.5.0        # Data processing
+numpy>=1.24.0        # Numerical computation
+scikit-learn>=1.3.0  # Machine learning tools
+wfdb>=4.1.0          # ECG file reading
+matplotlib>=3.7.0    # Visualization
+seaborn>=0.12.0      # Statistical charts
+tqdm>=4.65.0         # Progress bars
 ```
 
-### 快速环境搭建
+### Quick Environment Setup
 
 ```bash
-# 1. 创建虚拟环境
+# 1. Create virtual environment
 conda create -n pytorch_plrnn python=3.11
 conda activate pytorch_plrnn
 
-# 2. 安装PyTorch (自动检测MPS)
+# 2. Install PyTorch (automatic MPS detection)
 pip install torch torchvision torchaudio
 
-# 3. 安装项目依赖
+# 3. Install project dependencies
 pip install pandas numpy scikit-learn wfdb matplotlib seaborn tqdm
 
-# 4. 验证MPS支持
-python -c "import torch; print(f'✅ MPS可用: {torch.backends.mps.is_available()}')"
+# 4. Verify MPS support
+python -c "import torch; print(f'✅ MPS Available: {torch.backends.mps.is_available()}')"
 ```
 
-## 🚀 快速开始
+## 🚀 Quick Start
 
-### 1️⃣ 数据验证 (推荐第一步)
+### 1️⃣ Data Validation (Recommended First Step)
 
 ```bash
 python data_validator.py
 ```
 
-**期望输出:**
+**Expected Output:**
 ```
-=== ECG数据验证和分析工具 ===
-✅ 成功加载 366301 条记录
-✅ 基础路径存在
-✅ 数据读取正常，可以运行训练
+=== ECG Data Validation and Analysis Tool ===
+✅ Successfully loaded 366301 records
+✅ Base path exists
+✅ Data reading normal, ready to run training
 
-类别分布:
+Class Distribution:
   Atrial_Fibrillation    240,717  (65.7%)
   Tachycardia            60,809   (16.6%)
   Bradycardia            32,508   (8.9%)
   Normal                 21,950   (6.0%)
   Bundle_Branch_Block    10,317   (2.8%)
 
-✅ 数据验证成功！建议运行PyTorch PLRNN训练
+✅ Data validation successful! Recommend running PyTorch PLRNN training
 ```
 
-### 2️⃣ PLRNN训练
+### 2️⃣ PLRNN Training
 
+#### Single-Label Classification (5 Classes)
 ```bash
 python pytorch_plrnn.py
 ```
 
-**训练过程:**
+#### Multi-Label Classification (32 Labels) - 🆕 Scientific Method
+```bash
+python pytorch_plrnn_multilabel.py
 ```
-=== Mac M4优化配置 ===
-✅ 使用Metal Performance Shaders (MPS)
 
-=== PyTorch PLRNN ECG分类系统 ===
-设备: mps
-总参数: 28,560
-可训练参数: 28,560
+**Training Process:**
+```
+=== Mac M4 Optimization Configuration ===
+✅ Using Metal Performance Shaders (MPS)
 
---- 开始训练 (5 epochs) ---
-Epoch 1/5: 训练Loss=1.682, Acc=18% | 验证Loss=1.573, Acc=30%
-✅ 保存最佳模型 (验证准确率: 30.00%)
+=== PyTorch PLRNN ECG Classification System ===
+Device: mps
+Total Parameters: 28,560
+Trainable Parameters: 28,560
+
+--- Starting Training (5 epochs) ---
+Epoch 1/5: Train Loss=1.682, Acc=18% | Val Loss=1.573, Acc=30%
+✅ Saving best model (validation accuracy: 30.00%)
 ...
-✅ 训练完成！
+✅ Training completed!
 ```
 
-### 3️⃣ 结果分析
+### 3️⃣ Results Analysis
 
-训练后自动生成:
-- 📊 `pytorch_plrnn_results.png` - 训练曲线和混淆矩阵
-- 🤖 `pytorch_plrnn_best_model.pth` - 最佳模型权重  
-- 📋 `pytorch_plrnn_results.json` - 详细配置和结果
+After training, the following files are automatically generated:
+- 📊 `pytorch_plrnn_results.png` - Training curves and confusion matrix
+- 🤖 `pytorch_plrnn_best_model.pth` - Best model weights  
+- 📋 `pytorch_plrnn_results.json` - Detailed configuration and results
 
-## 🧠 PLRNN架构详解
+## 🧠 PLRNN Architecture Details
 
-### 核心创新: 分段线性激活函数
+### Core Innovation: Piecewise Linear Activation Function
 
-**传统问题**: RNN中的tanh/sigmoid激活函数存在梯度消失问题  
-**PLRNN解决方案**: 使用可学习的分段线性激活函数
+**Traditional Problem**: tanh/sigmoid activation functions in RNNs suffer from gradient vanishing problems  
+**PLRNN Solution**: Uses learnable piecewise linear activation functions
 
 ```python
-# 传统RNN
+# Traditional RNN
 h_t = tanh(W_ih * x_t + W_hh * h_{t-1} + b)
 
 # PLRNN  
 h_t = f_pwl(W_ih * x_t + W_hh * h_{t-1} + b)
-# 其中 f_pwl 是可学习的分段线性函数
+# where f_pwl is a learnable piecewise linear function
 ```
 
-### 完整模型架构
+### Complete Model Architecture
 
 ```
-输入层
-├── 🔹 ECG波形: (batch, 500, 12) - 500时间点 × 12导联
-└── 🔹 医学特征: (batch, 8) - 8个心率变异性特征
+Input Layer
+├── 🔹 ECG Waveform: (batch, 500, 12) - 500 time points × 12 leads
+└── 🔹 Medical Features: (batch, 8) - 8 heart rate variability features
 
-多尺度CNN特征提取
+Multi-Scale CNN Feature Extraction
 ├── Conv1D(kernel=3) → BatchNorm → MaxPool
 ├── Conv1D(kernel=5) → BatchNorm → MaxPool  
 └── Conv1D(kernel=7) → BatchNorm → MaxPool
         ↓ (concatenate)
 
-PLRNN时序建模
-├── PLRNN Layer 1: 64单元, 4段分段线性
-└── PLRNN Layer 2: 32单元, 3段分段线性
+PLRNN Temporal Modeling
+├── PLRNN Layer 1: 64 units, 4-segment piecewise linear
+└── PLRNN Layer 2: 32 units, 3-segment piecewise linear
         ↓
 
-特征融合
-├── 波形分支: PLRNN输出 → Dense(48)
-├── 医学分支: 特征输入 → Dense(24)
-└── 融合: Concatenate(72) → Dense(64) → Dense(32)
+Feature Fusion
+├── Waveform Branch: PLRNN output → Dense(48)
+├── Medical Branch: Feature input → Dense(24)
+└── Fusion: Concatenate(72) → Dense(64) → Dense(32)
         ↓
 
-输出分类: Dense(5) + Softmax
+Output Classification: Dense(5) + Softmax / Dense(32) + Sigmoid (Multi-label)
 ```
 
-### 医学特征工程
+### Medical Feature Engineering
 
-| 特征名称 | 临床意义 | 正常范围 | 计算方法 |
-|---------|---------|---------|---------|
-| **Heart Rate** | 心率 | 60-100 bpm | 60/mean(RR_intervals) |
-| **SDNN** | 心率变异性 | 20-50 ms | std(RR_intervals) |
-| **RMSSD** | 短期变异性 | 15-40 ms | sqrt(mean(diff(RR)²)) |
-| **CV_RR** | 变异系数 | 0.03-0.07 | std(RR)/mean(RR) |
-| **Mean/STD** | 统计特征 | - | 信号均值/标准差 |
-| **Skew/Kurt** | 分布特征 | - | 偏度/峰度 |
+| Feature Name | Clinical Significance | Normal Range | Calculation Method |
+|-------------|---------------------|-------------|-------------------|
+| **Heart Rate** | Heart Rate | 60-100 bpm | 60/mean(RR_intervals) |
+| **SDNN** | Heart Rate Variability | 20-50 ms | std(RR_intervals) |
+| **RMSSD** | Short-term Variability | 15-40 ms | sqrt(mean(diff(RR)²)) |
+| **CV_RR** | Coefficient of Variation | 0.03-0.07 | std(RR)/mean(RR) |
+| **Mean/STD** | Statistical Features | - | Signal mean/standard deviation |
+| **Skew/Kurt** | Distribution Features | - | Skewness/Kurtosis |
 
-## 📊 性能评估
+## 📊 Performance Evaluation
 
-### 🏆 实际训练结果 (Mac M4)
+### 🏆 Actual Training Results (Mac M4)
 
-- **测试准确率**: 18.0% (小规模数据集)
-- **最佳验证准确率**: 30.0%
-- **模型规模**: 28,560个参数 (112KB)
-- **训练设备**: Apple Silicon MPS ✅
-- **训练速度**: ~2-3分钟/epoch
-- **内存占用**: <2GB RAM
+- **Test Accuracy**: 18.0% (small-scale dataset)
+- **Best Validation Accuracy**: 30.0%
+- **Model Size**: 28,560 parameters (112KB)
+- **Training Device**: Apple Silicon MPS ✅
+- **Training Speed**: ~2-3 minutes/epoch
+- **Memory Usage**: <2GB RAM
 
-### 📈 详细分类报告
+### 📈 Detailed Classification Report
 
+#### Single-Label Classification Results (5 Classes)
 ```
                      precision    recall  f1-score   support
         Bradycardia       0.23      0.27      0.25        11
@@ -213,141 +230,203 @@ Bundle_Branch_Block       0.00      0.00      0.00        10
        weighted avg       0.12      0.18      0.14        50
 ```
 
-### 🔍 结果分析
+#### Multi-Label Classification Results (32 Labels) - 🆕
+```
+Multi-Label Performance Metrics:
+• Test Hamming Loss: 0.2381 (lower is better)
+• Test Micro F1: 0.208 (overall performance)
+• Test Macro F1: 0.099 (average across labels)
 
-**✅ 技术突破:**
-- MPS加速成功运行，无兼容性问题
-- PLRNN架构正确实现，梯度流动正常
-- 数据管道鲁棒性强，自动处理异常数据
+Top 5 Best Performing Labels:
+ 1. NORMAL                    | F1:0.597 | Precision:0.465 | Recall:0.833
+ 2. ARRHYTHMIA               | F1:0.389 | Precision:0.350 | Recall:0.438
+ 3. AXIS_DEVIATION           | F1:0.385 | Precision:0.385 | Recall:0.385
+ 4. AXIS_DEVIATION_LEFT      | F1:0.267 | Precision:0.667 | Recall:0.167
+ 5. BORDERLINE_ABNORMAL      | F1:0.194 | Precision:0.300 | Recall:0.143
+```
 
-**📊 医学洞察:**
-- 前3个类别(房颤、心动过缓、心动过速)展现学习能力
-- 束支传导阻滞和正常心律需要更多样本和特征
-- 心率变异性特征对心律失常识别有价值
+### 🔍 Results Analysis
 
-**🎯 优化方向:**
-- 增加训练数据规模 (200 → 2000+ 样本)
-- 延长训练时间 (5 → 25+ epochs)
-- 增强少数类别数据样本
+**✅ Technical Breakthroughs:**
+- MPS acceleration runs successfully with no compatibility issues
+- PLRNN architecture implemented correctly with normal gradient flow
+- Data pipeline is robust and automatically handles abnormal data
 
-## 🛠️ 自定义配置
+**📊 Medical Insights:**
+- Top 3 categories (Atrial Fibrillation, Bradycardia, Tachycardia) show learning capability
+- Bundle Branch Block and Normal Rhythm need more samples and features
+- Heart rate variability features are valuable for arrhythmia identification
 
-编辑 `pytorch_plrnn.py` 中的配置:
+**🎯 Optimization Directions:**
+- Increase training data scale (200 → 2000+ samples)
+- Extend training time (5 → 25+ epochs)
+- Enhance minority class data samples
+
+## 🛠️ Custom Configuration
+
+Edit configuration in `pytorch_plrnn.py`:
 
 ```python
 class Config:
-    # 数据集大小
-    TRAIN_SAMPLES = 2000    # 增加训练样本
-    VAL_SAMPLES = 400       # 验证集大小
-    TEST_SAMPLES = 600      # 测试集大小
+    # Dataset size
+    TRAIN_SAMPLES = 2000    # Increase training samples
+    VAL_SAMPLES = 400       # Validation set size
+    TEST_SAMPLES = 600      # Test set size
     
-    # 训练参数  
-    BATCH_SIZE = 8          # Mac M4推荐批次大小
-    LEARNING_RATE = 0.001   # 学习率
-    EPOCHS = 25             # 训练轮数
+    # Training parameters  
+    BATCH_SIZE = 8          # Recommended batch size for Mac M4
+    LEARNING_RATE = 0.001   # Learning rate
+    EPOCHS = 25             # Number of epochs
     
-    # 模型架构
-    SEQUENCE_LENGTH = 500   # ECG序列长度
-    HIDDEN_DIM = 64         # PLRNN隐藏维度
-    NUM_PIECES = 4          # 分段线性激活段数
+    # Model architecture
+    SEQUENCE_LENGTH = 500   # ECG sequence length
+    HIDDEN_DIM = 64         # PLRNN hidden dimension
+    NUM_PIECES = 4          # Number of piecewise linear segments
     
-    # 硬件配置
-    DEVICE = "mps"          # Apple Silicon加速
+    # Hardware configuration
+    DEVICE = "mps"          # Apple Silicon acceleration
 ```
 
-## 🔧 故障排除
+## 🔧 Troubleshooting
 
-### 常见问题解决
+### Common Issues and Solutions
 
-**Q1: MPS不可用**
+**Q1: MPS not available**
 ```bash
-# 检查PyTorch版本
+# Check PyTorch version
 python -c "import torch; print(torch.__version__)"
-# 重新安装最新版本
+# Reinstall latest version
 pip install --upgrade torch torchvision torchaudio
 ```
 
-**Q2: 数据读取失败**
+**Q2: Data reading failure**
 ```bash
-# 运行数据验证工具
+# Run data validation tool
 python data_validator.py
-# 检查MIMIC数据路径配置
+# Check MIMIC data path configuration
 ```
 
-**Q3: 内存不足**  
+**Q3: Out of memory**  
 ```python
-# 减少批次大小
-BATCH_SIZE = 4  # 或更小
+# Reduce batch size
+BATCH_SIZE = 4  # or smaller
 
-# 减少序列长度
+# Reduce sequence length
 SEQUENCE_LENGTH = 250
 
-# 减少训练样本
+# Reduce training samples
 TRAIN_SAMPLES = 500
 ```
 
-**Q4: 训练速度慢**
-- 确保使用MPS加速: `device = torch.device("mps")`
-- 检查系统活动监视器中的GPU利用率
-- 考虑减少模型复杂度
+**Q4: Slow training speed**
+- Ensure MPS acceleration is used: `device = torch.device("mps")`
+- Check GPU utilization in Activity Monitor
+- Consider reducing model complexity
 
-## 🌟 项目价值与影响
+## 🌟 Project Value and Impact
 
-### 🎓 学术贡献
-- **算法创新**: PLRNN在医学信号处理领域的首次应用
-- **硬件适配**: Apple Silicon生态下的深度学习优化实践
-- **开源贡献**: 完整的ECG分析工具链，促进医学AI研究
+### 🎓 Academic Contributions
+- **Algorithm Innovation**: First application of PLRNN in medical signal processing
+- **Scientific Multi-Label Classification**: Multi-label cardiac disease classification system based on real clinical notes
+- **Hardware Adaptation**: Deep learning optimization practices in Apple Silicon ecosystem
+- **Open Source Contribution**: Complete ECG analysis toolkit promoting medical AI research
 
-### 🏥 临床潜力
-- **自动化诊断**: 辅助医生进行心电图快速筛查
-- **远程医疗**: 支持可穿戴设备的实时心律监测
-- **教育培训**: 为医学生提供心电图识别训练工具
+### 🏥 Clinical Potential
+- **Automated Diagnosis**: Assist doctors in rapid ECG screening
+- **Telemedicine**: Support real-time heart rhythm monitoring for wearable devices
+- **Education and Training**: Provide ECG identification training tools for medical students
 
-### 💡 技术价值
-- **轻量级部署**: 仅112KB模型大小，适合边缘设备
-- **实时处理**: 优化的推理速度支持实时分析
-- **可扩展性**: 模块化设计便于功能扩展和改进
+### 💡 Technical Value
+- **Lightweight Deployment**: Only 112KB model size, suitable for edge devices
+- **Real-time Processing**: Optimized inference speed supports real-time analysis
+- **Scalability**: Modular design facilitates feature expansion and improvement
 
-## 📈 未来发展方向
+## 📈 Future Development Directions
 
-### 🔬 算法优化
-- [ ] **注意力机制**: 引入自注意力提升时序建模能力
-- [ ] **多尺度PLRNN**: 不同时间尺度的分段线性建模
-- [ ] **对抗训练**: 提升模型鲁棒性和泛化能力
+### 🔬 Algorithm Optimization
+- [ ] **Attention Mechanism**: Introduce self-attention to improve temporal modeling capability
+- [ ] **Multi-Scale PLRNN**: Piecewise linear modeling at different time scales
+- [ ] **Adversarial Training**: Improve model robustness and generalization ability
+- [ ] **Multi-Label Optimization**: Improve label imbalance handling and hierarchical classification
 
-### 📊 数据增强  
-- [ ] **合成数据生成**: 使用GAN生成平衡的ECG样本
-- [ ] **数据增强**: 时间扭曲、频域变换等技术
-- [ ] **迁移学习**: 利用其他ECG数据集预训练
+### 📊 Data Augmentation  
+- [ ] **Synthetic Data Generation**: Use GAN to generate balanced ECG samples
+- [ ] **Data Augmentation**: Time warping, frequency domain transformation techniques
+- [ ] **Transfer Learning**: Use other ECG datasets for pretraining
 
-### 🚀 应用拓展
-- [ ] **实时监测系统**: 集成到医疗设备的实时分析
-- [ ] **移动应用**: 开发iOS/Android应用程序
-- [ ] **云端服务**: 提供ECG分析API服务
+### 🚀 Application Expansion
+- [ ] **Real-time Monitoring System**: Integrate real-time analysis into medical devices
+- [ ] **Mobile Applications**: Develop iOS/Android applications
+- [ ] **Cloud Services**: Provide ECG analysis API services
 
-## 📚 参考文献与致谢
+## 📚 References and Acknowledgments
 
-### 数据集
+### Datasets
 - **MIMIC-IV-ECG**: MIT Lab for Computational Physiology
-- **PhysioNet**: 生理信号数据库平台
+- **PhysioNet**: Physiological signal database platform
 
-### 技术框架
-- **PyTorch**: 深度学习框架与MPS支持
-- **Apple Silicon**: Metal Performance Shaders加速
-- **WFDB**: 医学波形数据库工具
+### Technical Frameworks
+- **PyTorch**: Deep learning framework with MPS support
+- **Apple Silicon**: Metal Performance Shaders acceleration
+- **WFDB**: Medical waveform database tools
 
-### 创新致谢
-- **PLRNN理论**: 分段线性递归神经网络的医学应用探索
-- **Mac M4优化**: Apple Silicon生态下的AI模型部署实践
-- **开源社区**: scikit-learn、matplotlib等优秀工具库
+### Innovation Acknowledgments
+- **PLRNN Theory**: Exploration of piecewise linear recurrent neural networks in medical applications
+- **Mac M4 Optimization**: AI model deployment practices in Apple Silicon ecosystem
+- **Open Source Community**: Excellent toolkits like scikit-learn, matplotlib
+
+---
+
+**🎓 Master's Thesis Project | 2025**  
+**⚡ Using PyTorch + Apple Silicon MPS Acceleration**  
+**🔬 Focused on ECG Analysis & Deep Learning Innovation**  
+**🏷️ First Implementation of Scientific Multi-Label Classification System Based on MIMIC-IV-ECG**
+
+---
+
+> This project demonstrates a complete workflow for medical AI research on Apple Silicon platforms,  
+> providing valuable technical references for related research from data preprocessing to model deployment.
+
+---
+
+# 🔬 ECG心电图分类深度学习项目 - PyTorch PLRNN实现
+
+## 项目简介
+
+本项目基于**MIMIC-IV-ECG数据集**，使用创新的**分段线性递归神经网络(PLRNN)**实现心电图的智能分类，包括：
+- 🎯 **5分类任务**: 房颤、心动过缓、束支传导阻滞、正常心律、心动过速
+- 🏷️ **多标签分类**: 32个心脏疾病标签的科学多标签分类系统（**全新！**）
+
+### 🚀 **项目亮点 (2025年)**
+- 🧠 **PLRNN创新架构**: 首次在ECG分析中应用分段线性激活函数
+- 💻 **Mac M4原生支持**: 完美适配Apple Silicon MPS加速，训练速度提升显著
+- 🏷️ **科学多标签分类**: 基于MIMIC-IV-ECG原始notes的32个心脏疾病标签系统
+- 📊 **完整数据管道**: 智能数据验证、预处理和统计分析系统
+- 🔧 **轻量级设计**: 单标签28,560参数，多标签29,451参数
+- ⚡ **端到端解决方案**: 从原始ECG信号到分类结果的完整工作流
+
+### 🏆 **核心创新**
+- **分段线性激活**: 突破传统RNN梯度消失问题
+- **医学特征融合**: 结合心率变异性等8个临床关键指标
+- **智能数据验证**: 自动检测和修复ECG数据读取问题
+- **Apple Silicon优化**: 专为M系列芯片深度优化的训练管道
+
+## 🎓 学术价值
+
+相比传统单标签方法，本项目的多标签系统具有重要学术和临床价值：
+- **更符合医学实际**: 一个ECG记录往往同时存在多种心脏异常
+- **基于真实数据**: 直接从MIMIC-IV-ECG原始医学notes中提取标签
+- **科学分类体系**: 建立了包含9大类32个子类的完整心脏疾病分类体系
+
+## 🏥 临床意义
+
+- **自动化诊断**: 辅助医生进行心电图快速多疾病筛查
+- **远程医疗**: 支持可穿戴设备的多标签实时心律监测
+- **医学教育**: 为医学生提供全面的心电图识别训练工具
 
 ---
 
 **🎓 硕士论文项目 | 2025年**  
 **⚡ 采用PyTorch + Apple Silicon MPS加速**  
-**🔬 专注于ECG心电图分析与深度学习创新**
-
----
-
-> 本项目展示了在Apple Silicon平台上进行医学AI研究的完整工作流程，  
-> 从数据预处理到模型部署的端到端解决方案，为相关研究提供了宝贵的技术参考。
+**🔬 专注于ECG心电图分析与深度学习创新**  
+**🏷️ 首次实现基于MIMIC-IV-ECG的科学多标签分类系统**

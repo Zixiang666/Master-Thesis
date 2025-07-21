@@ -30,6 +30,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 from sklearn.utils.class_weight import compute_class_weight
 from sklearn.preprocessing import LabelEncoder
+import matplotlib
+matplotlib.use('Agg')  # 设置非交互式后端，适合Mac环境
 import matplotlib.pyplot as plt
 import seaborn as sns
 from tqdm import tqdm
