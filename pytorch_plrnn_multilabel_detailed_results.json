@@ -1,0 +1,133 @@
+{
+  "config": {
+    "model": "PyTorch PLRNN Multi-Label",
+    "parameters": 29451,
+    "device": "Mac M4 MPS",
+    "epochs": 3,
+    "batch_size": 8,
+    "labels": 32
+  },
+  "train_history": {
+    "loss": [
+      0.7014,
+      0.6606,
+      0.624
+    ],
+    "hamming": [
+      0.4792,
+      0.3991,
+      0.3076
+    ],
+    "subset_acc": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "val_history": {
+    "loss": [
+      0.7177,
+      0.6278,
+      0.5946
+    ],
+    "hamming": [
+      0.4425,
+      0.3588,
+      0.1888
+    ],
+    "subset_acc": [
+      0.0,
+      0.0,
+      0.02
+    ],
+    "macro_f1": [
+      0.0998,
+      0.0881,
+      0.1692
+    ],
+    "micro_f1": [
+      0.15,
+      0.18,
+      0.2079
+    ]
+  },
+  "test_results": {
+    "loss": 0.5931,
+    "hamming": 0.2381,
+    "subset_acc": 0.0,
+    "macro_f1": 0.0989,
+    "micro_f1": 0.2079
+  },
+  "label_performance": [
+    {
+      "label": "NORMAL",
+      "f1": 0.597,
+      "precision": 0.465,
+      "recall": 0.833,
+      "support": 24
+    },
+    {
+      "label": "BORDERLINE_ABNORMAL",
+      "f1": 0.194,
+      "precision": 0.3,
+      "recall": 0.143,
+      "support": 21
+    },
+    {
+      "label": "MYOCARDIAL_INFARCTION",
+      "f1": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "support": 20
+    },
+    {
+      "label": "ARRHYTHMIA",
+      "f1": 0.389,
+      "precision": 0.35,
+      "recall": 0.438,
+      "support": 16
+    },
+    {
+      "label": "CONDUCTION_ABNORMALITY",
+      "f1": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "support": 15
+    },
+    {
+      "label": "AXIS_DEVIATION",
+      "f1": 0.385,
+      "precision": 0.385,
+      "recall": 0.385,
+      "support": 13
+    },
+    {
+      "label": "REPOLARIZATION_ABNORMALITY",
+      "f1": 0.118,
+      "precision": 0.25,
+      "recall": 0.077,
+      "support": 13
+    },
+    {
+      "label": "AXIS_DEVIATION_LEFT",
+      "f1": 0.267,
+      "precision": 0.667,
+      "recall": 0.167,
+      "support": 12
+    },
+    {
+      "label": "ARRHYTHMIA_BRADYCARDIA",
+      "f1": 0.182,
+      "precision": 0.133,
+      "recall": 0.286,
+      "support": 7
+    },
+    {
+      "label": "ISCHEMIA",
+      "f1": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "support": 7
+    }
+  ]
+}

@@ -1,0 +1,239 @@
+{
+  "category_mapping": {
+    "NORMAL": {
+      "patterns": [
+        "normal ecg",
+        "sinus rhythm$",
+        "normal sinus rhythm"
+      ],
+      "exclude": [
+        "abnormal",
+        "irregular",
+        "variant"
+      ]
+    },
+    "ARRHYTHMIA": {
+      "patterns": [
+        "tachycardia",
+        "bradycardia",
+        "fibrillation",
+        "flutter",
+        "arrhythmia",
+        "pacemaker",
+        "junctional",
+        "ventricular rhythm",
+        "atrial rhythm"
+      ],
+      "subcategories": {
+        "TACHYCARDIA": [
+          "tachycardia"
+        ],
+        "BRADYCARDIA": [
+          "bradycardia"
+        ],
+        "ATRIAL_FIBRILLATION": [
+          "atrial fibrillation"
+        ],
+        "SUPRAVENTRICULAR": [
+          "supraventricular",
+          "svt"
+        ],
+        "VENTRICULAR": [
+          "ventricular tachycardia",
+          "v-tach",
+          "ventricular rhythm"
+        ]
+      }
+    },
+    "CONDUCTION_ABNORMALITY": {
+      "patterns": [
+        "block",
+        "conduction",
+        "bundle branch",
+        "fascicular",
+        "av block"
+      ],
+      "subcategories": {
+        "BUNDLE_BRANCH_BLOCK": [
+          "bundle branch block",
+          "rbbb",
+          "lbbb"
+        ],
+        "AV_BLOCK": [
+          "av block",
+          "a-v block"
+        ],
+        "FASCICULAR_BLOCK": [
+          "fascicular block"
+        ]
+      }
+    },
+    "MYOCARDIAL_INFARCTION": {
+      "patterns": [
+        "infarct",
+        "mi",
+        "stemi",
+        "nstemi",
+        "myocardial infarction"
+      ],
+      "subcategories": {
+        "ANTERIOR_MI": [
+          "anterior infarct",
+          "anterior mi"
+        ],
+        "INFERIOR_MI": [
+          "inferior infarct",
+          "inferior mi"
+        ],
+        "LATERAL_MI": [
+          "lateral infarct",
+          "lateral mi"
+        ],
+        "SEPTAL_MI": [
+          "septal infarct",
+          "septal mi"
+        ]
+      }
+    },
+    "ISCHEMIA": {
+      "patterns": [
+        "ischemia",
+        "ischemic",
+        "st elevation",
+        "st depression"
+      ],
+      "exclude": [
+        "non-ischemic",
+        "no ischemia"
+      ]
+    },
+    "HYPERTROPHY": {
+      "patterns": [
+        "hypertrophy",
+        "enlargement",
+        "lvh",
+        "rvh",
+        "lah",
+        "rah"
+      ],
+      "subcategories": {
+        "LVH": [
+          "left ventricular hypertrophy",
+          "lvh"
+        ],
+        "RVH": [
+          "right ventricular hypertrophy",
+          "rvh"
+        ],
+        "ATRIAL_ENLARGEMENT": [
+          "atrial enlargement",
+          "lah",
+          "rah"
+        ]
+      }
+    },
+    "REPOLARIZATION_ABNORMALITY": {
+      "patterns": [
+        "t wave",
+        "st changes",
+        "repolarization",
+        "qt interval"
+      ],
+      "subcategories": {
+        "T_WAVE_ABNORMAL": [
+          "t wave changes",
+          "t wave abnormality"
+        ],
+        "ST_CHANGES": [
+          "st changes",
+          "st elevation",
+          "st depression"
+        ],
+        "QT_PROLONGATION": [
+          "prolonged qt",
+          "qt interval"
+        ]
+      }
+    },
+    "LOW_VOLTAGE": {
+      "patterns": [
+        "low voltage",
+        "low qrs voltage"
+      ],
+      "subcategories": {
+        "PRECORDIAL_LOW_VOLTAGE": [
+          "low qrs voltages in precordial leads"
+        ],
+        "LIMB_LOW_VOLTAGE": [
+          "low qrs voltages in limb leads"
+        ]
+      }
+    },
+    "AXIS_DEVIATION": {
+      "patterns": [
+        "axis deviation",
+        "left axis",
+        "right axis",
+        "leftward axis"
+      ],
+      "subcategories": {
+        "LEFT_AXIS_DEVIATION": [
+          "left axis deviation",
+          "leftward axis"
+        ],
+        "RIGHT_AXIS_DEVIATION": [
+          "right axis deviation"
+        ]
+      }
+    },
+    "BORDERLINE_ABNORMAL": {
+      "patterns": [
+        "borderline",
+        "possible",
+        "probable",
+        "consider"
+      ],
+      "note": "Uncertain findings that need clinical correlation"
+    }
+  },
+  "label_frequencies": {
+    "NORMAL": 4904,
+    "BORDERLINE_ABNORMAL": 4757,
+    "ARRHYTHMIA": 4084,
+    "MYOCARDIAL_INFARCTION": 3445,
+    "CONDUCTION_ABNORMALITY": 2457,
+    "REPOLARIZATION_ABNORMALITY": 2319,
+    "ISCHEMIA": 1527,
+    "AXIS_DEVIATION": 1495,
+    "REPOLARIZATION_ABNORMALITY_T_WAVE_ABNORMAL": 1460,
+    "AXIS_DEVIATION_LEFT_AXIS_DEVIATION": 1366,
+    "ARRHYTHMIA_BRADYCARDIA": 1248,
+    "HYPERTROPHY": 1104,
+    "CONDUCTION_ABNORMALITY_BUNDLE_BRANCH_BLOCK": 1006,
+    "ARRHYTHMIA_ATRIAL_FIBRILLATION": 994,
+    "MYOCARDIAL_INFARCTION_INFERIOR_MI": 971,
+    "LOW_VOLTAGE": 928,
+    "ARRHYTHMIA_TACHYCARDIA": 900,
+    "HYPERTROPHY_LVH": 821,
+    "CONDUCTION_ABNORMALITY_AV_BLOCK": 780,
+    "LOW_VOLTAGE_PRECORDIAL_LOW_VOLTAGE": 477,
+    "CONDUCTION_ABNORMALITY_FASCICULAR_BLOCK": 474,
+    "REPOLARIZATION_ABNORMALITY_QT_PROLONGATION": 449,
+    "MYOCARDIAL_INFARCTION_SEPTAL_MI": 436,
+    "MYOCARDIAL_INFARCTION_ANTERIOR_MI": 383,
+    "LOW_VOLTAGE_LIMB_LOW_VOLTAGE": 275,
+    "HYPERTROPHY_ATRIAL_ENLARGEMENT": 187,
+    "REPOLARIZATION_ABNORMALITY_ST_CHANGES": 145,
+    "AXIS_DEVIATION_RIGHT_AXIS_DEVIATION": 128,
+    "MYOCARDIAL_INFARCTION_LATERAL_MI": 115,
+    "HYPERTROPHY_RVH": 94,
+    "ARRHYTHMIA_VENTRICULAR": 85,
+    "ARRHYTHMIA_SUPRAVENTRICULAR": 50
+  },
+  "dataset_stats": {
+    "total_records": 10000,
+    "labeled_records": 9938,
+    "avg_labels_per_record": 3.9864,
+    "max_labels_per_record": 15
+  }
+}
