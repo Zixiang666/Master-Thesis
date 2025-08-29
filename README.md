@@ -168,5 +168,3 @@ This research was supported by:
 - MIMIC-IV-ECG dataset from PhysioNet
 - Advanced machine learning techniques for healthcare applications
 - The open-source community for excellent tools and libraries
-
----
