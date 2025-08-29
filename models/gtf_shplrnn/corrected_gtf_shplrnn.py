@@ -16,7 +16,7 @@ Key improvements:
 
 Reference: TRR_WS project shallow PLRNN implementation
 Author: Master Thesis Project
-Date: 2025-08-17
+Date: 2025
 """
 
 import torch
