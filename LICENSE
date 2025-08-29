@@ -20,17 +20,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-## Additional Terms for Academic Use
-
-If you use this software for academic research, please cite the original paper:
-
-@mastersthesis{zhou2025gtfshplrnn,
-  title={GTF-enhanced shallow Piecewise Linear RNN for Multi-label ECG Classification},
-  author={Zhou, Zixiang},
-  year={2025},
-  school={University},
-  note={Master's Thesis Project - Research Achievement Report}
-}
 
 ## Data Usage Notice
 
