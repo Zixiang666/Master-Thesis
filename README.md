@@ -6,13 +6,6 @@
 
 This repository contains the experimental code for our research on **GTF-enhanced shallow Piecewise Linear RNN (GTF-shPLRNN)** for automated ECG multi-label classification, achieving **320× parameter efficiency** compared to ResNet-1D while maintaining **88% of its performance**.
 
-## 🏆 Key Achievements
-
-- **SOTA Ranking**: 2nd place among 4 state-of-the-art methods
-- **Parameter Efficiency**: 320× fewer parameters than ResNet-1D (57,760 vs 18,523,488)
-- **Clinical Performance**: 90.48% accuracy suitable for medical decision support
-- **Real-time Processing**: 2.43ms inference time enabling continuous monitoring
-- **Edge Computing Ready**: 230KB model size suitable for mobile devices
 
 
 ## 🚀 Quick Start
