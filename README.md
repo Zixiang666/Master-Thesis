@@ -14,14 +14,6 @@ This repository contains the experimental code for our research on **GTF-enhance
 - **Real-time Processing**: 2.43ms inference time enabling continuous monitoring
 - **Edge Computing Ready**: 230KB model size suitable for mobile devices
 
-## 📊 Performance Comparison
-
-| Model | F1 Macro | F1 Micro | Accuracy | Parameters | Efficiency Score |
-|-------|----------|----------|----------|------------|-----------------|
-| ResNet-1D | 0.4925 | 0.6124 | 91.45% | 18,523,488 | 0.00011 |
-| **GTF-shPLRNN** | **0.4341** | **0.5886** | **90.55%** | **57,760** | **0.00181** |
-| Transformer | 0.3731 | 0.5234 | 88.92% | 107,488 | 0.00114 |
-| LSTM Baseline | 0.3345 | 0.4823 | 87.56% | 292,896 | 0.00062 |
 
 ## 🚀 Quick Start
 
