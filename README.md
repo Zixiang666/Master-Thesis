@@ -1,4 +1,4 @@
-# GTF-enhanced shallow Piecewise Linear RNN for Multi-label ECG Classification
+# GTF- shallow Piecewise Linear RNN for Multi-label ECG Classification
 
 [![Paper](https://img.shields.io/badge/Paper-PDF-red)](docs/GTF_shPLRNN_ECG_Research_Report.pdf)
 [![Code](https://img.shields.io/badge/Code-Python-blue)](models/gtf_shplrnn/)
