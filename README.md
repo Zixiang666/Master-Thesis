@@ -4,7 +4,7 @@
 [![Code](https://img.shields.io/badge/Code-Python-blue)](models/gtf_shplrnn/)
 [![Data](https://img.shields.io/badge/Data-MIMIC--IV--ECG-green)](https://physionet.org/content/mimic-iv-ecg/1.0/)
 
-This repository contains the experimental code for our research on **GTF-enhanced shallow Piecewise Linear RNN (GTF-shPLRNN)** for automated ECG multi-label classification, achieving **320× parameter efficiency** compared to ResNet-1D while maintaining **88% of its performance**.
+This repository contains the experimental code for our research on **GTF-enhanced shallow Piecewise Linear RNN (GTF-shPLRNN)** for automated ECG multi-label classification, achieving **32× parameter efficiency** compared to ResNet-1D while maintaining **88% of its performance**.
 
 
 
